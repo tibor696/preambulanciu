@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PreAmbulanciu.sk | Partner pre ambulancie</title>
+
+<style>
+/* GLOBAL */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #16324f;
+    line-height: 1.7;
+    background: #ffffff;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* HEADER */
+header {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    z-index: 1000;
+}
+
+nav a {
+    margin-left: 25px;
+    color: #16324f;
+    font-weight: 500;
+}
+
+/* HERO */
+.hero {
+    position: relative;
+    height: 60vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: -2;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.35);
+    z-index: -1;
+}
+
+.hero-content {
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(12px);
+    padding: 45px;
+    border-radius: 18px;
+    text-align: center;
+    max-width: 720px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+/* BUTTONS */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 12px 6px 0 6px;
+    background: transparent;
+    color: #2f80ed;
+    border: 1.5px solid #2f80ed;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background: #2f80ed;
+    color: white;
+    box-shadow: 0 8px 25px rgba(47,128,237,0.3);
+}
+
+/* SECTIONS */
+section {
+    padding: 90px 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.light-bg {
+    background: #f5f9fc;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 28px;
+}
+
+/* PROBLEMY */
+.problems {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.problem-box {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+.problem-box svg {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 15px;
+    stroke: #0f2b46;
+}
+
+/* NAŠE RIEŠENIA */
+.solutions {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.solution-box {
+    flex: 1;
+    min-width: 300px;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(22,50,79,0.05);
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s ease;
+}
+
+.solution-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 60px rgba(22,50,79,0.08);
+}
+
+.solution-box img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 20px;
+}
+
+.solution-box .button {
+    align-self: flex-start;
+    width: auto;
+    padding: 7px 14px;
+    font-size: 13px;
+    margin-top: auto;
+}
+
+/* PRECO MY */
+.why {
+    background: #ffffff;
+    padding: 60px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+.why ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+/* PRE KOHO */
+.target ul {
+    columns: 2;
+    list-style: disc;
+    padding-left: 20px;
+}
+
+/* BUDÚCNOSŤ */
+.future {
+    text-align: center;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* KONTAKT */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #d8e2ec;
+}
+
+/* FOOTER */
+footer {
+    background: #0f2b46;
+    color: #ffffff;
+    padding: 50px 40px;
+}
+
+.footer-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 220px;
+}
+
+.footer-column h4 {
+    margin-bottom: 15px;
+}
+
+.footer-column a {
+    display: block;
+    color: #cfd9e3;
+    text-decoration: none;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 13px;
+    opacity: 0.8;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="logo3.png" height="70" alt="PreAmbulanciu logo">
+    <nav>
+        <a href="#problemy">Problémy</a>
+        <a href="#riesenia">Riešenia</a>
+        <a href="#kontakt">Kontakt</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <video autoplay muted loop playsinline>
+        <source src="video.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-content">
+        <h1>Rozumieme prostrediu ambulancií</h1>
+        <p>Pomáhame ambulanciám fungovať profesionálne – online aj v čakárni.</p>
+        <a href="#riesenia" class="button">Zistiť viac</a>
+        <a href="#kontakt" class="button">Nezáväzná konzultácia</a>
+    </div>
+</section>
+
+<section id="problemy" class="light-bg">
+    <h2 class="section-title">Každá ambulancia rieši</h2>
+
+    <div class="problems">
+        <div class="problem-box">
+            <svg fill="none" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 7v5l3 3"/>
+            </svg>
+            <p>Nedostatok času</p>
+        </div>
+
+        <div class="problem-box">
+            <svg fill="none" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="9" cy="8" r="3"/>
+                <circle cx="17" cy="8" r="3"/>
+                <path d="M2 20c0-3 4-5 7-5s7 2 7 5"/>
+            </svg>
+            <p>Preplnená čakáreň</p>
+        </div>
+
+        <div class="problem-box">
+            <svg fill="none" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M9 9a3 3 0 1 1 6 0c0 2-3 2-3 4"/>
+            </svg>
+            <p>Opakujúce sa otázky pacientov</p>
+        </div>
+    </div>
+</section>
+
+<section id="riesenia">
+    <h2 class="section-title">Naše riešenia</h2>
+
+    <div class="solutions">
+
+        <div class="solution-box">
+            <img src="1a.png" alt="Web pre ambulanciu">
+            <h3>Web pre ambulanciu</h3>
+            <p>Prehľadná prezentácia ambulancie, jasné informácie pre pacientov a profesionálny dojem.</p>
+            <a href="#" class="button">Pozrieť ukážku</a>
+        </div>
+
+        <div class="solution-box">
+            <img src="2.jpg" alt="Digitálny panel">
+            <h3>Digitálny panel do čakárne</h3>
+            <p>Oznamy, edukácia a profesionálna komunikácia priamo v čakárni.</p>
+            <a href="#" class="button">Zistiť ako funguje</a>
+        </div>
+
+    </div>
+</section>
+
+<section class="light-bg">
+    <div class="why">
+        <h2>Prečo my</h2>
+        <p>V ambulantnom prostredí sa pohybujeme viac ako desať rokov. Rozumieme komunikácii medzi ambulanciou a pacientom.</p>
+        <ul>
+            <li>Skúsenosti z praxe</li>
+            <li>Dlhodobá spolupráca so zdravotníctvom</li>
+            <li>Zameranie na jednoduchosť</li>
+            <li>Individuálny prístup</li>
+        </ul>
+    </div>
+</section>
+
+<section class="target">
+    <h2 class="section-title">Pre koho je to vhodné</h2>
+    <ul>
+        <li>Pre existujúce ambulancie</li>
+        <li>Pre novootvorené ambulancie</li>
+        <li>Pre ambulancie, ktoré chcú zlepšiť komunikáciu</li>
+        <li>Pre ambulancie, ktoré chcú pôsobiť profesionálne</li>
+    </ul>
+</section>
+
+<section class="future light-bg">
+    <p>Postupne pripravujeme ďalšie riešenia – od vybavenia až po komplexnú podporu pri otváraní novej ambulancie.</p>
+</section>
+
+<section id="kontakt">
+    <h2 class="section-title">Kontakt</h2>
+
+    <div class="contact-form">
+        <input type="text" placeholder="Meno">
+        <input type="text" placeholder="Ambulancia">
+        <input type="tel" placeholder="Telefón">
+        <input type="email" placeholder="Email">
+        <textarea rows="5" placeholder="Správa"></textarea>
+        <a href="#" class="button">Odoslať</a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-column">
+            <h4>PreAmbulanciu.sk</h4>
+            <p>Partner pre ambulancie – digitálne riešenia, web, panel a poradenstvo.</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Kontakt</h4>
+            <a href="mailto:info@preambulanciu.sk">info@preambulanciu.sk</a>
+            <a href="tel:+421904493463">+421 904 493 463</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>Dokumenty</h4>
+            <a href="#">Ochrana osobných údajov (GDPR)</a>
+            <a href="#">Obchodné podmienky</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 PreAmbulanciu.sk | IČO: XXXXXXXX | Všetky práva vyhradené
+    </div>
+</footer>
+
+</body>
+</html>
