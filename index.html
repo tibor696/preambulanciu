@@ -3,8 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PreAmbulanciu.sk | Partner pre ambulancie</title>
+
+<title>Web pre ambulancie a digitálny panel do čakárne | PreAmbulanciu.sk</title>
+<meta name="description" content="Pomáhame ambulanciám zlepšiť komunikáciu s pacientmi, znížiť počet opakovaných otázok a priniesť viac prehľadnosti do každodennej prevádzky.">
+
 <style>
+
 /* GLOBAL */
 body {
     margin: 0;
@@ -27,24 +31,36 @@ header {
     align-items: center;
     padding: 12px 20px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    border-bottom: 1px solid #e6eef5;
     z-index: 1000;
 }
 
 .header-left img {
     height: 70px;
-    max-height: 70px;
 }
 
 .header-right {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
 }
 
-/* NAVIGATION */
+/* NAV */
 nav {
     display: flex;
     gap: 25px;
+}
+
+nav a {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1b3c5d;
+    letter-spacing: 0.3px;
+    transition: 0.2s ease;
+}
+
+nav a:hover {
+    color: #2f80ed;
 }
 
 .burger {
@@ -52,13 +68,13 @@ nav {
     flex-direction: column;
     cursor: pointer;
     gap: 5px;
+    padding: 8px;
 }
 
 .burger div {
     width: 25px;
     height: 3px;
     background-color: #16324f;
-    transition: all 0.3s ease;
 }
 
 nav.active {
@@ -67,7 +83,7 @@ nav.active {
     position: absolute;
     top: 75px;
     right: 20px;
-    background: rgba(255,255,255,0.95);
+    background: white;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -104,33 +120,39 @@ nav.active {
 }
 
 .hero-content {
-    background: rgba(255,255,255,0.55);
-    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(10px);
     padding: 40px;
     border-radius: 18px;
     text-align: center;
     max-width: 720px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
 }
 
-/* BUTTONS */
+.hero-content h1 {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 17px;
+}
+
+/* BUTTON */
 .button {
     display: inline-block;
-    padding: 10px 20px;
-    margin: 12px 6px 0 6px;
-    background: transparent;
-    color: #2f80ed;
+    padding: 12px 22px;
+    margin: 15px 8px 0 8px;
     border: 1.5px solid #2f80ed;
     border-radius: 30px;
     font-size: 14px;
     font-weight: 500;
-    transition: all 0.3s ease;
+    color: #2f80ed;
+    transition: 0.3s ease;
 }
 
 .button:hover {
     background: #2f80ed;
     color: white;
-    box-shadow: 0 8px 25px rgba(47,128,237,0.3);
 }
 
 /* SECTIONS */
@@ -148,7 +170,7 @@ section {
     font-size: 28px;
 }
 
-/* PROBLEMY */
+/* PROBLEMS */
 .problems {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -156,14 +178,14 @@ section {
 }
 
 .problem-box {
-    background: #ffffff;
+    background: white;
     padding: 30px;
     border-radius: 12px;
     text-align: center;
     box-shadow: 0 8px 25px rgba(0,0,0,0.05);
 }
 
-/* NAŠE RIEŠENIA */
+/* SOLUTIONS */
 .solutions {
     display: flex;
     gap: 40px;
@@ -173,8 +195,8 @@ section {
 .solution-box {
     flex: 1;
     min-width: 280px;
-    background: rgba(255,255,255,0.95);
-    padding: 20px;
+    background: white;
+    padding: 25px;
     border-radius: 16px;
     box-shadow: 0 20px 50px rgba(22,50,79,0.05);
     display: flex;
@@ -184,7 +206,6 @@ section {
 
 .solution-box:hover {
     transform: translateY(-5px);
-    box-shadow: 0 25px 60px rgba(22,50,79,0.08);
 }
 
 .solution-box img {
@@ -195,35 +216,35 @@ section {
     margin-bottom: 20px;
 }
 
-.solution-box .button {
-    align-self: flex-start;
-    width: auto;
-    padding: 7px 14px;
-    font-size: 13px;
-    margin-top: auto;
-}
-
-/* PRECO MY */
+/* WHY */
 .why {
-    background: #ffffff;
+    background: white;
     padding: 60px;
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.05);
 }
 
-.why ul { list-style: disc; padding-left: 20px; }
-
-/* PRE KOHO */
+/* TARGET */
 .target ul {
     columns: 2;
-    list-style: disc;
     padding-left: 20px;
 }
 
-/* BUDÚCNOSŤ */
-.future { text-align: center; font-style: italic; opacity: 0.8; }
+/* CTA */
+.cta {
+    text-align: center;
+    max-width: 700px;
+    margin: auto;
+}
 
-/* KONTAKT */
+/* FUTURE */
+.future {
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* CONTACT */
 .contact-form input,
 .contact-form textarea {
     width: 100%;
@@ -258,7 +279,6 @@ footer {
 .footer-column a {
     display: block;
     color: #cfd9e3;
-    text-decoration: none;
     margin-bottom: 8px;
     font-size: 14px;
 }
@@ -270,20 +290,45 @@ footer {
     opacity: 0.8;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    nav { display: none; }
-    .burger { display: flex; }
-    .solutions { flex-direction: column; }
-    .problems { grid-template-columns: 1fr; }
-    .target ul { columns: 1; }
-    .hero-content { padding: 25px; max-width: 90%; }
+/* ANIMATION */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.8s ease;
 }
 
-@media (max-width: 480px) {
-    .header-left img { height: 50px; max-height: 50px; }
-    header { padding: 8px 15px; }
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
+
+/* MOBILE */
+@media (max-width:768px) {
+
+    nav { display: none; }
+    .burger { display: flex; }
+
+    section { padding: 60px 20px; }
+
+    .section-title { font-size: 22px; }
+
+    .solutions { flex-direction: column; }
+
+    .target ul { columns: 1; }
+
+    .button {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .hero { height: 70vh; }
+
+    .hero-content h1 { font-size: 24px; }
+    .hero-content p { font-size: 15px; }
+}
+
 </style>
 </head>
 <body>
@@ -294,7 +339,7 @@ footer {
   </div>
   <div class="header-right">
     <nav>
-      <a href="#problemy" onclick="closeMenu()">Problémy</a>
+      <a href="#problemy" onclick="closeMenu()">Výzvy</a>
       <a href="#riesenia" onclick="closeMenu()">Riešenia</a>
       <a href="#kontakt" onclick="closeMenu()">Kontakt</a>
     </nav>
@@ -309,65 +354,74 @@ footer {
     <source src="video.mp4" type="video/mp4">
   </video>
   <div class="hero-content">
-    <h1>Rozumieme prostrediu ambulancií</h1>
-    <p>Pomáhame ambulanciám fungovať profesionálne – online aj v čakárni.</p>
-    <a href="#riesenia" class="button">Zistiť viac</a>
+    <h1>Prevádzka ambulancie môže fungovať pokojnejšie</h1>
+    <p>Pomáhame ambulanciám zjednodušiť komunikáciu s pacientmi, znížiť počet opakovaných otázok a priniesť viac prehľadnosti do každodennej prevádzky.</p>
     <a href="#kontakt" class="button">Nezáväzná konzultácia</a>
+    <a href="#riesenia" class="button">Ako pomáhame</a>
   </div>
 </section>
 
 <section id="problemy" class="light-bg">
-  <h2 class="section-title">Každá ambulancia rieši</h2>
+  <h2 class="section-title">S čím sa ambulancie stretávajú</h2>
   <div class="problems">
-    <div class="problem-box"><p>Nedostatok času</p></div>
-    <div class="problem-box"><p>Preplnená čakáreň</p></div>
-    <div class="problem-box"><p>Opakujúce sa otázky pacientov</p></div>
+    <div class="problem-box"><p>Pacienti nemajú jasné informácie a často telefonujú</p></div>
+    <div class="problem-box"><p>V čakárni vzniká neistota a opakované otázky</p></div>
+    <div class="problem-box"><p>Personál vysvetľuje tie isté veci dookola</p></div>
   </div>
 </section>
 
 <section id="riesenia">
-  <h2 class="section-title">Naše riešenia</h2>
+  <h2 class="section-title">Ako pomáhame</h2>
   <div class="solutions">
     <div class="solution-box">
-      <img src="1a.png" alt="Web pre ambulanciu">
+      <img src="1a.png">
       <h3>Web pre ambulanciu</h3>
-      <p>Prehľadná prezentácia ambulancie, jasné informácie pre pacientov a profesionálny dojem.</p>
-      <a href="#" class="button">Pozrieť ukážku</a>
+      <p>Stránka, kde pacient nájde ordinačné hodiny, postup objednávania aj aktuálne oznamy bez nutnosti telefonovania.</p>
     </div>
     <div class="solution-box">
-      <img src="2.jpg" alt="Digitálny panel">
-      <h3>Digitálny panel do čakárne</h3>
-      <p>Oznamy, edukácia a profesionálna komunikácia priamo v čakárni.</p>
-      <a href="#" class="button">Zistiť ako funguje</a>
+      <img src="2.jpg">
+      <h3>Informačný panel do čakárne</h3>
+      <p>Prehľadné zobrazovanie oznamov a dôležitých informácií, ktoré znižuje tlak na personál a prináša viac pokoja do čakárne.</p>
     </div>
   </div>
 </section>
 
 <section class="light-bg">
   <div class="why">
-    <h2>Prečo my</h2>
-    <p>V ambulantnom prostredí sa pohybujeme viac ako desať rokov. Rozumieme komunikácii medzi ambulanciou a pacientom.</p>
-    <ul>
-      <li>Skúsenosti z praxe</li>
-      <li>Dlhodobá spolupráca so zdravotníctvom</li>
-      <li>Zameranie na jednoduchosť</li>
-      <li>Individuálny prístup</li>
-    </ul>
+    <h2>Prečo spolupracovať s nami</h2>
+    <p>Ambulantné prostredie poznáme z praxe. Vieme, kde vznikajú komunikačné problémy a ako ich riešiť jednoducho a funkčne.</p>
+      <ul>
+        <li>Zameranie výlučne na ambulancie</li>
+        <li>Skúsenosti zo zdravotníckeho prostredia</li>
+        <li>Riešenia navrhnuté pre každodennú prevádzku</li>
+        <li>Dlhodobá spolupráca</li>
+      </ul>
   </div>
 </section>
 
 <section class="target">
-  <h2 class="section-title">Pre koho je to vhodné</h2>
+  <h2 class="section-title">Pre koho je spolupráca vhodná</h2>
   <ul>
-    <li>Pre existujúce ambulancie</li>
-    <li>Pre novootvorené ambulancie</li>
-    <li>Pre ambulancie, ktoré chcú zlepšiť komunikáciu</li>
-    <li>Pre ambulancie, ktoré chcú pôsobiť profesionálne</li>
+    <li>Pre existujúce ambulancie, ktoré chcú zjednodušiť komunikáciu</li>
+    <li>Pre novootvorené ambulancie, ktoré chcú nastaviť jasné fungovanie od začiatku</li>
+    <li>Pre ambulancie s vysokým počtom telefonátov</li>
+    <li>Pre ambulancie, kde je tlak na personál</li>
   </ul>
 </section>
 
+<section class="cta light-bg">
+  <h2>Chcete zjednodušiť prevádzku vašej ambulancie?</h2>
+  <p>Ozvite sa nám a spoločne nastavíme komunikáciu tak, aby šetrila čas personálu aj pacientov.</p>
+  <a href="#kontakt" class="button">Dohodnúť si konzultáciu</a>
+</section>
+
 <section class="future light-bg">
-  <p>Postupne pripravujeme ďalšie riešenia – od vybavenia až po komplexnú podporu pri otváraní novej ambulancie.</p>
+  <h2>Čo pripravujeme</h2>
+  <p>
+    Postupne rozširujeme podporu pre ambulancie – od vybavenia čakární
+    až po komplexnú pomoc pri otváraní novej ambulancie.
+    Cieľom je priniesť viac poriadku a stability do každodennej prevádzky.
+  </p>
 </section>
 
 <section id="kontakt">
@@ -386,19 +440,25 @@ footer {
   <div class="footer-grid">
     <div class="footer-column">
       <h4>PreAmbulanciu.sk</h4>
-      <p>Partner pre ambulancie – digitálne riešenia, web, panel a poradenstvo.</p>
+      <p>
+        Partner pre ambulancie – webové riešenia, informačné panely
+        a podpora pri zlepšovaní prevádzky.
+      </p>
     </div>
+
     <div class="footer-column">
       <h4>Kontakt</h4>
       <a href="mailto:info@preambulanciu.sk">info@preambulanciu.sk</a>
       <a href="tel:+421904493463">+421 904 493 463</a>
     </div>
+
     <div class="footer-column">
       <h4>Dokumenty</h4>
       <a href="#">Ochrana osobných údajov (GDPR)</a>
       <a href="#">Obchodné podmienky</a>
     </div>
   </div>
+
   <div class="footer-bottom">
     © 2026 PreAmbulanciu.sk | IČO: XXXXXXXX | Všetky práva vyhradené
   </div>
@@ -406,16 +466,25 @@ footer {
 
 <script>
 function toggleMenu() {
-    const nav = document.querySelector('nav');
-    nav.classList.toggle('active');
+    document.querySelector('nav').classList.toggle('active');
+}
+function closeMenu() {
+    document.querySelector('nav').classList.remove('active');
 }
 
-function closeMenu() {
-    const nav = document.querySelector('nav');
-    nav.classList.remove('active');
-}
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+});
+
+document.querySelectorAll('section, .solution-box, .problem-box').forEach(el => {
+  el.classList.add('fade-in');
+  observer.observe(el);
+});
 </script>
 
 </body>
 </html>
-
