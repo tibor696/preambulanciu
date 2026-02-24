@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PreAmbulanciu.sk | Partner pre ambulancie</title>
+<title>PreAmbulanciu.sk | Partner pri zlepšovaní prevádzky</title>
 <style>
 /* GLOBAL */
 body {
@@ -12,7 +12,7 @@ body {
     color: #16324f;
     line-height: 1.7;
     background: #ffffff;
-    overflow-x: hidden; /* zabráni horizontálnemu scrollu */
+    overflow-x: hidden;
 }
 
 a { text-decoration: none; }
@@ -29,8 +29,10 @@ header {
     padding: 12px 20px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.04);
     z-index: 1000;
-    font-size: 16px; /* veľkosť písma v headeri */
-    color: #16324f; /* farba písma v headeri */
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #16324f;
 }
 
 .header-left img {
@@ -64,12 +66,12 @@ nav {
     transition: all 0.3s ease;
 }
 
-/* MOBILE MENU FIX */
+/* MOBILE MENU FIX + ANIMÁCIA */
 @media (max-width: 768px) {
     nav {
         display: none;
-        position: fixed; /* fix nad sekciami */
-        top: 0;
+        position: fixed;
+        top: -100%;
         left: 0;
         width: 100%;
         height: 100vh;
@@ -80,12 +82,14 @@ nav {
         padding: 0;
         margin: 0;
         z-index: 2000;
+        transition: top 0.4s ease;
     }
-    nav.active { display: flex; }
+    nav.active { top: 0; display: flex; }
 
     nav a {
         font-size: 20px; 
         padding: 15px 0;
+        color: #16324f;
     }
 
     .burger { display: flex; }
@@ -93,8 +97,8 @@ nav {
     .problems { grid-template-columns: 1fr; }
     .target ul { columns: 1; }
     .hero-content { padding: 25px; max-width: 90%; }
-    .header-left img { height: 50px; max-height: 50px; } /* zmenšené logo */
-    header { padding: 8px 15px; font-size: 14px; }
+    .header-left img { height: 50px; max-height: 50px; }
+    header { padding: 8px 15px; font-size: 16px; }
 }
 
 /* HERO */
@@ -395,7 +399,7 @@ footer {
   <div class="footer-grid">
     <div class="footer-column">
       <h4>PreAmbulanciu.sk</h4>
-      <p>Partner pre ambulancie – digitálne riešenia, web, panel a poradenstvo.</p>
+      <p>Partner pri zlepšovaní prevádzky – digitálne riešenia, web, panel a poradenstvo.</p>
     </div>
     <div class="footer-column">
       <h4>Kontakt</h4>
