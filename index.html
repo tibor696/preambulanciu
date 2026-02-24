@@ -3,12 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Web pre ambulancie a digitálny panel do čakárne | PreAmbulanciu.sk</title>
-<meta name="description" content="Pomáhame ambulanciám zlepšiť komunikáciu s pacientmi, znížiť počet opakovaných otázok a priniesť viac prehľadnosti do každodennej prevádzky.">
-
+<title>PreAmbulanciu.sk | Partner pre ambulancie</title>
 <style>
-
 /* GLOBAL */
 body {
     margin: 0;
@@ -16,6 +12,7 @@ body {
     color: #16324f;
     line-height: 1.7;
     background: #ffffff;
+    overflow-x: hidden; /* zabráni horizontálnemu scrollu */
 }
 
 a { text-decoration: none; }
@@ -31,36 +28,26 @@ header {
     align-items: center;
     padding: 12px 20px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-    border-bottom: 1px solid #e6eef5;
     z-index: 1000;
+    font-size: 16px; /* veľkosť písma v headeri */
+    color: #16324f; /* farba písma v headeri */
 }
 
 .header-left img {
     height: 70px;
+    max-height: 70px;
 }
 
 .header-right {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 20px;
 }
 
-/* NAV */
+/* NAVIGATION */
 nav {
     display: flex;
     gap: 25px;
-}
-
-nav a {
-    font-size: 15px;
-    font-weight: 600;
-    color: #1b3c5d;
-    letter-spacing: 0.3px;
-    transition: 0.2s ease;
-}
-
-nav a:hover {
-    color: #2f80ed;
 }
 
 .burger {
@@ -68,25 +55,46 @@ nav a:hover {
     flex-direction: column;
     cursor: pointer;
     gap: 5px;
-    padding: 8px;
 }
 
 .burger div {
     width: 25px;
     height: 3px;
     background-color: #16324f;
+    transition: all 0.3s ease;
 }
 
-nav.active {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 75px;
-    right: 20px;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+/* MOBILE MENU FIX */
+@media (max-width: 768px) {
+    nav {
+        display: none;
+        position: fixed; /* fix nad sekciami */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgba(255,255,255,0.98);
+        padding: 0;
+        margin: 0;
+        z-index: 2000;
+    }
+    nav.active { display: flex; }
+
+    nav a {
+        font-size: 20px; 
+        padding: 15px 0;
+    }
+
+    .burger { display: flex; }
+    .solutions { flex-direction: column; }
+    .problems { grid-template-columns: 1fr; }
+    .target ul { columns: 1; }
+    .hero-content { padding: 25px; max-width: 90%; }
+    .header-left img { height: 50px; max-height: 50px; } /* zmenšené logo */
+    header { padding: 8px 15px; font-size: 14px; }
 }
 
 /* HERO */
@@ -120,39 +128,33 @@ nav.active {
 }
 
 .hero-content {
-    background: rgba(255,255,255,0.6);
-    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(12px);
     padding: 40px;
     border-radius: 18px;
     text-align: center;
     max-width: 720px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
 }
 
-.hero-content h1 {
-    font-size: 34px;
-    margin-bottom: 15px;
-}
-
-.hero-content p {
-    font-size: 17px;
-}
-
-/* BUTTON */
+/* BUTTONS */
 .button {
     display: inline-block;
-    padding: 12px 22px;
-    margin: 15px 8px 0 8px;
+    padding: 10px 20px;
+    margin: 12px 6px 0 6px;
+    background: transparent;
+    color: #2f80ed;
     border: 1.5px solid #2f80ed;
     border-radius: 30px;
     font-size: 14px;
     font-weight: 500;
-    color: #2f80ed;
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .button:hover {
     background: #2f80ed;
     color: white;
+    box-shadow: 0 8px 25px rgba(47,128,237,0.3);
 }
 
 /* SECTIONS */
@@ -170,7 +172,7 @@ section {
     font-size: 28px;
 }
 
-/* PROBLEMS */
+/* PROBLEMY */
 .problems {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -178,14 +180,14 @@ section {
 }
 
 .problem-box {
-    background: white;
+    background: #ffffff;
     padding: 30px;
     border-radius: 12px;
     text-align: center;
     box-shadow: 0 8px 25px rgba(0,0,0,0.05);
 }
 
-/* SOLUTIONS */
+/* NAŠE RIEŠENIA */
 .solutions {
     display: flex;
     gap: 40px;
@@ -195,8 +197,8 @@ section {
 .solution-box {
     flex: 1;
     min-width: 280px;
-    background: white;
-    padding: 25px;
+    background: rgba(255,255,255,0.95);
+    padding: 20px;
     border-radius: 16px;
     box-shadow: 0 20px 50px rgba(22,50,79,0.05);
     display: flex;
@@ -206,6 +208,7 @@ section {
 
 .solution-box:hover {
     transform: translateY(-5px);
+    box-shadow: 0 25px 60px rgba(22,50,79,0.08);
 }
 
 .solution-box img {
@@ -216,35 +219,35 @@ section {
     margin-bottom: 20px;
 }
 
-/* WHY */
+.solution-box .button {
+    align-self: flex-start;
+    width: auto;
+    padding: 7px 14px;
+    font-size: 13px;
+    margin-top: auto;
+}
+
+/* PRECO MY */
 .why {
-    background: white;
+    background: #ffffff;
     padding: 60px;
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.05);
 }
 
-/* TARGET */
+.why ul { list-style: disc; padding-left: 20px; }
+
+/* PRE KOHO */
 .target ul {
     columns: 2;
+    list-style: disc;
     padding-left: 20px;
 }
 
-/* CTA */
-.cta {
-    text-align: center;
-    max-width: 700px;
-    margin: auto;
-}
+/* BUDÚCNOSŤ */
+.future { text-align: center; font-style: italic; opacity: 0.8; }
 
-/* FUTURE */
-.future {
-    text-align: center;
-    max-width: 800px;
-    margin: auto;
-}
-
-/* CONTACT */
+/* KONTAKT */
 .contact-form input,
 .contact-form textarea {
     width: 100%;
@@ -279,6 +282,7 @@ footer {
 .footer-column a {
     display: block;
     color: #cfd9e3;
+    text-decoration: none;
     margin-bottom: 8px;
     font-size: 14px;
 }
@@ -289,46 +293,6 @@ footer {
     font-size: 13px;
     opacity: 0.8;
 }
-
-/* ANIMATION */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: 0.8s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* MOBILE */
-@media (max-width:768px) {
-
-    nav { display: none; }
-    .burger { display: flex; }
-
-    section { padding: 60px 20px; }
-
-    .section-title { font-size: 22px; }
-
-    .solutions { flex-direction: column; }
-
-    .target ul { columns: 1; }
-
-    .button {
-        display: block;
-        width: 100%;
-        text-align: center;
-        margin: 10px 0;
-    }
-
-    .hero { height: 70vh; }
-
-    .hero-content h1 { font-size: 24px; }
-    .hero-content p { font-size: 15px; }
-}
-
 </style>
 </head>
 <body>
@@ -339,7 +303,7 @@ footer {
   </div>
   <div class="header-right">
     <nav>
-      <a href="#problemy" onclick="closeMenu()">Výzvy</a>
+      <a href="#problemy" onclick="closeMenu()">Problémy</a>
       <a href="#riesenia" onclick="closeMenu()">Riešenia</a>
       <a href="#kontakt" onclick="closeMenu()">Kontakt</a>
     </nav>
@@ -354,74 +318,65 @@ footer {
     <source src="video.mp4" type="video/mp4">
   </video>
   <div class="hero-content">
-    <h1>Prevádzka ambulancie môže fungovať pokojnejšie</h1>
-    <p>Pomáhame ambulanciám zjednodušiť komunikáciu s pacientmi, znížiť počet opakovaných otázok a priniesť viac prehľadnosti do každodennej prevádzky.</p>
+    <h1>Rozumieme prostrediu ambulancií</h1>
+    <p>Pomáhame ambulanciám fungovať online aj v čakárni, znižujeme opakované otázky a prinášame prehľadnosť.</p>
+    <a href="#riesenia" class="button">Zistiť viac</a>
     <a href="#kontakt" class="button">Nezáväzná konzultácia</a>
-    <a href="#riesenia" class="button">Ako pomáhame</a>
   </div>
 </section>
 
 <section id="problemy" class="light-bg">
-  <h2 class="section-title">S čím sa ambulancie stretávajú</h2>
+  <h2 class="section-title">Každá ambulancia rieši</h2>
   <div class="problems">
-    <div class="problem-box"><p>Pacienti nemajú jasné informácie a často telefonujú</p></div>
-    <div class="problem-box"><p>V čakárni vzniká neistota a opakované otázky</p></div>
-    <div class="problem-box"><p>Personál vysvetľuje tie isté veci dookola</p></div>
+    <div class="problem-box"><p>Nedostatok času</p></div>
+    <div class="problem-box"><p>Preplnená čakáreň</p></div>
+    <div class="problem-box"><p>Opakujúce sa otázky pacientov</p></div>
   </div>
 </section>
 
 <section id="riesenia">
-  <h2 class="section-title">Ako pomáhame</h2>
+  <h2 class="section-title">Naše riešenia</h2>
   <div class="solutions">
     <div class="solution-box">
-      <img src="1a.png">
+      <img src="1a.png" alt="Web pre ambulanciu">
       <h3>Web pre ambulanciu</h3>
-      <p>Stránka, kde pacient nájde ordinačné hodiny, postup objednávania aj aktuálne oznamy bez nutnosti telefonovania.</p>
+      <p>Prehľadná prezentácia ambulancie a jasné informácie pre pacientov.</p>
+      <a href="#" class="button">Pozrieť ukážku</a>
     </div>
     <div class="solution-box">
-      <img src="2.jpg">
-      <h3>Informačný panel do čakárne</h3>
-      <p>Prehľadné zobrazovanie oznamov a dôležitých informácií, ktoré znižuje tlak na personál a prináša viac pokoja do čakárne.</p>
+      <img src="2.jpg" alt="Digitálny panel">
+      <h3>Digitálny panel do čakárne</h3>
+      <p>Oznamy, edukácia a lepšia komunikácia priamo v čakárni.</p>
+      <a href="#" class="button">Zistiť ako funguje</a>
     </div>
   </div>
 </section>
 
 <section class="light-bg">
   <div class="why">
-    <h2>Prečo spolupracovať s nami</h2>
-    <p>Ambulantné prostredie poznáme z praxe. Vieme, kde vznikajú komunikačné problémy a ako ich riešiť jednoducho a funkčne.</p>
-      <ul>
-        <li>Zameranie výlučne na ambulancie</li>
-        <li>Skúsenosti zo zdravotníckeho prostredia</li>
-        <li>Riešenia navrhnuté pre každodennú prevádzku</li>
-        <li>Dlhodobá spolupráca</li>
-      </ul>
+    <h2>Prečo my</h2>
+    <p>V ambulantnom prostredí sa pohybujeme viac ako desať rokov. Rozumieme komunikácii medzi ambulanciou a pacientom.</p>
+    <ul>
+      <li>Skúsenosti z praxe</li>
+      <li>Dlhodobá spolupráca so zdravotníctvom</li>
+      <li>Zameranie na jednoduchosť</li>
+      <li>Individuálny prístup</li>
+    </ul>
   </div>
 </section>
 
 <section class="target">
-  <h2 class="section-title">Pre koho je spolupráca vhodná</h2>
+  <h2 class="section-title">Pre koho je to vhodné</h2>
   <ul>
-    <li>Pre existujúce ambulancie, ktoré chcú zjednodušiť komunikáciu</li>
-    <li>Pre novootvorené ambulancie, ktoré chcú nastaviť jasné fungovanie od začiatku</li>
-    <li>Pre ambulancie s vysokým počtom telefonátov</li>
-    <li>Pre ambulancie, kde je tlak na personál</li>
+    <li>Pre existujúce ambulancie</li>
+    <li>Pre novootvorené ambulancie</li>
+    <li>Pre ambulancie, ktoré chcú zlepšiť komunikáciu</li>
+    <li>Pre ambulancie, ktoré chcú pôsobiť efektívne</li>
   </ul>
 </section>
 
-<section class="cta light-bg">
-  <h2>Chcete zjednodušiť prevádzku vašej ambulancie?</h2>
-  <p>Ozvite sa nám a spoločne nastavíme komunikáciu tak, aby šetrila čas personálu aj pacientov.</p>
-  <a href="#kontakt" class="button">Dohodnúť si konzultáciu</a>
-</section>
-
 <section class="future light-bg">
-  <h2>Čo pripravujeme</h2>
-  <p>
-    Postupne rozširujeme podporu pre ambulancie – od vybavenia čakární
-    až po komplexnú pomoc pri otváraní novej ambulancie.
-    Cieľom je priniesť viac poriadku a stability do každodennej prevádzky.
-  </p>
+  <p>Postupne pripravujeme ďalšie riešenia – od vybavenia až po komplexnú podporu pri otváraní novej ambulancie.</p>
 </section>
 
 <section id="kontakt">
@@ -440,25 +395,19 @@ footer {
   <div class="footer-grid">
     <div class="footer-column">
       <h4>PreAmbulanciu.sk</h4>
-      <p>
-        Partner pre ambulancie – webové riešenia, informačné panely
-        a podpora pri zlepšovaní prevádzky.
-      </p>
+      <p>Partner pre ambulancie – digitálne riešenia, web, panel a poradenstvo.</p>
     </div>
-
     <div class="footer-column">
       <h4>Kontakt</h4>
       <a href="mailto:info@preambulanciu.sk">info@preambulanciu.sk</a>
       <a href="tel:+421904493463">+421 904 493 463</a>
     </div>
-
     <div class="footer-column">
       <h4>Dokumenty</h4>
       <a href="#">Ochrana osobných údajov (GDPR)</a>
       <a href="#">Obchodné podmienky</a>
     </div>
   </div>
-
   <div class="footer-bottom">
     © 2026 PreAmbulanciu.sk | IČO: XXXXXXXX | Všetky práva vyhradené
   </div>
@@ -466,24 +415,14 @@ footer {
 
 <script>
 function toggleMenu() {
-    document.querySelector('nav').classList.toggle('active');
+    const nav = document.querySelector('nav');
+    nav.classList.toggle('active');
 }
+
 function closeMenu() {
-    document.querySelector('nav').classList.remove('active');
+    const nav = document.querySelector('nav');
+    nav.classList.remove('active');
 }
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
-  });
-});
-
-document.querySelectorAll('section, .solution-box, .problem-box').forEach(el => {
-  el.classList.add('fade-in');
-  observer.observe(el);
-});
 </script>
 
 </body>
